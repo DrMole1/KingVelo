@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Save;
 
 public class ReceptionManager : MonoBehaviour
 {
@@ -20,11 +21,20 @@ public class ReceptionManager : MonoBehaviour
 
     private bool canUseButton = true;
 
+    private SoundManager soundManager;
+
     // =====================================================
+
+    private void Awake()
+    {
+        Save.Save.SaveStartElements();
+
+        if (GameObject.Find("SoundManager") != null) { soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>(); }
+    }
 
     public void goToNavigationScene()
     {
-        if (canUseButton) { StartCoroutine(IAnimButton()); }
+        if (canUseButton) { StartCoroutine(IAnimButton()); if (soundManager != null) { soundManager.playAudioClip(6); } }
     }
 
     private IEnumerator IAnimButton()

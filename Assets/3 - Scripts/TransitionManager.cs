@@ -23,12 +23,17 @@ public class TransitionManager : MonoBehaviour
     [SerializeField] private GameObject ruleSlot;
 
     private bool canSkip = false;
+    [HideInInspector] public bool isOnTransition = true;
+
+    private SoundManager soundManager;
 
     // =====================================================
 
 
     private void Start()
     {
+        if (GameObject.Find("SoundManager") != null) { soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>(); }
+
         transform.SetAsLastSibling();
 
         loadStartEvent();
@@ -79,7 +84,11 @@ public class TransitionManager : MonoBehaviour
 
     private IEnumerator IShowBackground(float _delay)
     {
+        isOnTransition = true;
+
         yield return new WaitForSeconds(_delay);
+
+        if (soundManager != null) { soundManager.playAudioClip(7); }
 
         int cpt = 0;
 
@@ -92,11 +101,15 @@ public class TransitionManager : MonoBehaviour
 
             cpt++;
         }
+
+        if (soundManager != null) { soundManager.playAudioClip(8); }
     }
 
     private IEnumerator IUnshowBackground(float _delay)
     {
         yield return new WaitForSeconds(_delay);
+
+        if (soundManager != null) { soundManager.playAudioClip(7); }
 
         int cpt = 0;
 
@@ -109,6 +122,8 @@ public class TransitionManager : MonoBehaviour
 
             cpt++;
         }
+
+        isOnTransition = false;
     }
 
     public void setBackgroundOnMenuStart()

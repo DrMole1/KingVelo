@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d398be6351a854185d71d3db488360, type: 3}
+  m_Name: 03_YellowWheels
+  m_EditorClassIdentifier: 
+  type: 3
+  id: 3
+  nameItem: Pneus Jaunes
+  description: "Le d\xE9veloppeur se demande pourquoi il ajoute dans son jeu un pneu
+    que personne n'ach\xE8tera."
+  imgItem: {fileID: -892270625555964214, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
+  imgThema: {fileID: -6301674844793336653, guid: c03aa39ec71ab4b4f8088f480b5b6f5e, type: 3}
+  price: 100
+  rarity: 0
