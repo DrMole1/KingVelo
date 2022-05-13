@@ -29,6 +29,11 @@ public class TransitionManager : MonoBehaviour
 
     // =====================================================
 
+    private void Awake()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(true);
+    }
 
     private void Start()
     {
@@ -102,7 +107,7 @@ public class TransitionManager : MonoBehaviour
             cpt++;
         }
 
-        if (soundManager != null) { soundManager.playAudioClip(8); }
+        //if (soundManager != null) { soundManager.playAudioClip(8); }
     }
 
     private IEnumerator IUnshowBackground(float _delay)

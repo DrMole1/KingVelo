@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 0
   nameItem: Casque Bleu
   description: Un casque bleu standard fait pour un bleu comme vous.
-  imgItem: {fileID: -892270625555964214, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
+  imgItem: {fileID: -8285773504889700863, guid: ec24c1d71c7db3540a437f5bad231c0d, type: 3}
   imgThema: {fileID: -8208552298739362349, guid: c03aa39ec71ab4b4f8088f480b5b6f5e, type: 3}
   price: 0
   rarity: 0

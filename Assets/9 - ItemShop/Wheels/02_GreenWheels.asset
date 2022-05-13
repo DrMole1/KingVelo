@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 2
   nameItem: Pneus Verts
   description: "Des pneus verts. Vert, l'infini et l'au-del\xE0 !"
-  imgItem: {fileID: -892270625555964214, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
+  imgItem: {fileID: 2584086501481753425, guid: 14bdb923ff5553b448abf8d9dc309c8e, type: 3}
   imgThema: {fileID: -7323196934978415421, guid: c03aa39ec71ab4b4f8088f480b5b6f5e, type: 3}
   price: 100
   rarity: 0

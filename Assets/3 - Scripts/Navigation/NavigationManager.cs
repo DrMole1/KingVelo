@@ -54,6 +54,7 @@ public class NavigationManager : MonoBehaviour
     {
         if(!canUseButton) { return; }
 
+        Save.Save.SaveCombination();
         if (soundManager != null) { soundManager.playAudioClip(6); }
         StartCoroutine(IAnimButton(buttons[0]));
         StartCoroutine(IGoToScene(2.5f, nameTutoScene));
@@ -73,6 +74,7 @@ public class NavigationManager : MonoBehaviour
             return;
         }
 
+        Save.Save.SaveCombination();
         if (soundManager != null) { soundManager.playAudioClip(6); }
         Save.Save.SavePlayerPseudo(leaderBoardManager.getPseudo());
         StartCoroutine(IAnimButton(buttons[1]));

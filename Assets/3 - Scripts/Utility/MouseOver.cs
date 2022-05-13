@@ -40,7 +40,6 @@ public class MouseOver : MonoBehaviour
                 selector.SetActive(true);
                 break;
             default:
-                print("Incorrect type for MouseOver.cs");
                 break;
         }
 
@@ -57,7 +56,6 @@ public class MouseOver : MonoBehaviour
                 selector.SetActive(false);
                 break;
             default:
-                print("Incorrect type for MouseOver.cs");
                 break;
         }
     }

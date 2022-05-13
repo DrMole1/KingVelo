@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 0
   nameItem: Driiing
   description: Driiing driing !
-  imgItem: {fileID: -892270625555964214, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
+  imgItem: {fileID: -6700451980729152833, guid: e333e50ba6e77f847bc5d8b481742823, type: 3}
   imgThema: {fileID: -487932856283821646, guid: c03aa39ec71ab4b4f8088f480b5b6f5e, type: 3}
   price: 0
   rarity: 0

@@ -7,9 +7,9 @@ public class Rotate : MonoBehaviour
     // ========================== VARIABLES ==========================
 
     [Header("Properties")]
-    [SerializeField] private float xAngle;
-    [SerializeField] private float yAngle;
-    [SerializeField] private float zAngle;
+    public float xAngle;
+    public float yAngle;
+    public float zAngle;
 
     private bool canRotate = true;
 

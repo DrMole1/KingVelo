@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 1
   nameItem: Casque Rouge
   description: Un casque rouge standard pour cacher votre calvitie apparente.
-  imgItem: {fileID: -892270625555964214, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
+  imgItem: {fileID: -867696522777932473, guid: ec24c1d71c7db3540a437f5bad231c0d, type: 3}
   imgThema: {fileID: -7461552191761069786, guid: c03aa39ec71ab4b4f8088f480b5b6f5e, type: 3}
   price: 100
   rarity: 0

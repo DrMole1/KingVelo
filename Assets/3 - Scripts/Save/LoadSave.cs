@@ -178,9 +178,17 @@ namespace LoadSave
             return PlayerPrefs.GetInt("Score_Joueur", 0);
         }
 
-        static public string LoadCombination(string _combination)
+        static public int[] LoadCombination()
         {
-            return PlayerPrefs.GetString("Combinaison_Avatar", "");
+            string combination =  PlayerPrefs.GetString("Combinaison_Avatar", "");
+            int[] elements = new int[6];
+
+            for(int i = 0; i < elements.Length; i++)
+            {
+                elements[i] = combination[i];
+            }
+
+            return elements;
         }
     }
 }

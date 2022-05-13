@@ -17,7 +17,7 @@ MonoBehaviour:
   nameItem: Armature Jaune
   description: "Un v\xE9lo de couleur jaune. Le d\xE9veloppeur ne juge pas vos go\xFBts,
     mais c'est pas vraiment une jolie couleur."
-  imgItem: {fileID: -892270625555964214, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
+  imgItem: {fileID: -506495569614869240, guid: a583429fb141fcc4b8c886251c430174, type: 3}
   imgThema: {fileID: -6301674844793336653, guid: c03aa39ec71ab4b4f8088f480b5b6f5e, type: 3}
   price: 100
   rarity: 0

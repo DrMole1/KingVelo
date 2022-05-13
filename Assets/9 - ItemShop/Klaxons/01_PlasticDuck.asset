@@ -17,7 +17,7 @@ MonoBehaviour:
   nameItem: Canard en Plastique
   description: "Il est os\xE9 d'installer un canard en platique \xE0 la place de
     sa sonnette. A ne pas reproduire chez soi !"
-  imgItem: {fileID: -892270625555964214, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
+  imgItem: {fileID: 4359242090436984533, guid: e333e50ba6e77f847bc5d8b481742823, type: 3}
   imgThema: {fileID: 6848188764356508592, guid: c03aa39ec71ab4b4f8088f480b5b6f5e, type: 3}
   price: 200
   rarity: 0

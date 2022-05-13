@@ -77,6 +77,7 @@ namespace Save
 
             string nameSave = "Meilleur_Avatar_0" + _rank.ToString();
             PlayerPrefs.SetString(nameSave, _combination);
+
         }
 
         // ================================================================ Eléments équipés ================================================================
@@ -192,9 +193,18 @@ namespace Save
             PlayerPrefs.GetInt("Score_Joueur", _score);
         }
 
-        static public void SaveCombination(string _combination)
+        static public void SaveCombination()
         {
-            PlayerPrefs.SetString("Combinaison_Avatar", _combination);
+            string combination = "";
+
+            combination += LoadSave.LoadSave.LoadFace().ToString();
+            combination += LoadSave.LoadSave.LoadSkin().ToString();
+            combination += LoadSave.LoadSave.LoadMouth().ToString();
+            combination += LoadSave.LoadSave.LoadNose().ToString();
+            combination += LoadSave.LoadSave.LoadEyes().ToString();
+            combination += LoadSave.LoadSave.LoadHair().ToString();
+
+            PlayerPrefs.SetString("Combinaison_Avatar", combination);
         }
     }
 }

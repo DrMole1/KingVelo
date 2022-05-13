@@ -97,4 +97,42 @@ public class CameraShake : MonoBehaviour
             yield return null;
         }
     }
+
+    public void callIntroTranslation()
+    {
+        Vector3 currentRot;
+        Quaternion currentQuaternionRot = new Quaternion();
+
+        transform.localPosition = new Vector3(0f, 7.5f, 7.5f);
+
+        currentRot = new Vector3(45f, 180f, 0f);
+        currentQuaternionRot.eulerAngles = currentRot;
+        transform.localRotation = currentQuaternionRot;
+
+        StartCoroutine(IIntroTranslation());
+    }
+
+    private IEnumerator IIntroTranslation()
+    {
+        int cpt = 0;
+        float xRot = 45f;
+        Vector3 currentRot;
+        Quaternion currentQuaternionRot = new Quaternion();
+
+        yield return new WaitForSeconds(1f);
+
+        while (cpt < 50)
+        {
+            yield return new WaitForSeconds(0.02f);
+
+            transform.localPosition = new Vector3(0f, transform.localPosition.y - 0.1f, transform.localPosition.z - 0.1f);
+
+            xRot -= 0.2f;
+            currentRot = new Vector3(xRot, 180f, 0f);
+            currentQuaternionRot.eulerAngles = currentRot;
+            transform.localRotation = currentQuaternionRot;
+
+            cpt++;
+        }
+    }
 }

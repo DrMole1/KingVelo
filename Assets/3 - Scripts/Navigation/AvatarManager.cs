@@ -17,9 +17,6 @@ public class AvatarManager : MonoBehaviour
 
     // ===================== VARIABLES =====================
 
-    [Header("Drag the Transition Manager")]
-    [SerializeField] private TransitionManager transitionManager;
-
     [Header("Drag Buttons")]
     [SerializeField] private RectTransform[] buttonsCat;
     // 0 = Visage / 1 = Peau / 2 = Bouche / 3 = Nez / 4 = Yeux / 5 = Cheveux_01 / 6 = Cheveux_02
@@ -41,7 +38,7 @@ public class AvatarManager : MonoBehaviour
     [SerializeField] private Sprite[] noses;
     [SerializeField] private Sprite[] eyes;
     [SerializeField] private Sprite[] hairs01;
-    [SerializeField] private Sprite[] hair02;
+    [SerializeField] private Sprite[] hairs02;
 
     [Header("Objects in Scene")]
     [SerializeField] private GameObject choicePanel;
@@ -62,6 +59,8 @@ public class AvatarManager : MonoBehaviour
         skinsColor[1] = skin02;
         skinsColor[2] = skin03;
         skinsColor[3] = skin04;
+
+        loadAvatar();
     }
 
     private IEnumerator IAnimButton(RectTransform _btn)
@@ -140,7 +139,7 @@ public class AvatarManager : MonoBehaviour
                 tempSpr = hairs01;
                 break;
             case 6:
-                tempSpr = hair02;
+                tempSpr = hairs02;
                 break;
         }
 
@@ -169,6 +168,8 @@ public class AvatarManager : MonoBehaviour
         {
             imgAvatar[0].color = skinsColor[_id];
         }
+
+        saveAvatarElement(_id);
     }
 
     private int selectAvatarElement()
@@ -201,5 +202,53 @@ public class AvatarManager : MonoBehaviour
         }
 
         return tempElement;
+    }
+
+    private void saveAvatarElement(int _id)
+    {
+        switch (currentCat)
+        {
+            case 0:
+                Save.Save.SaveFace(_id);
+                break;
+            case 1:
+                Save.Save.SaveSkin(_id);
+                break;
+            case 2:
+                Save.Save.SaveMouth(_id);
+                break;
+            case 3:
+                Save.Save.SaveNose(_id);
+                break;
+            case 4:
+                Save.Save.SaveEyes(_id);
+                break;
+            case 5:
+                Save.Save.SaveHair(_id);
+                break;
+            case 6:
+                Save.Save.SaveHair(_id + 4);
+                break;
+        }
+    }
+
+    private void loadAvatar()
+    {
+        imgAvatar[0].sprite = shapes[LoadSave.LoadSave.LoadFace()];
+        imgAvatar[1].sprite = mouths[LoadSave.LoadSave.LoadMouth()];
+        imgAvatar[2].sprite = noses[LoadSave.LoadSave.LoadNose()];
+        imgAvatar[3].sprite = eyes[LoadSave.LoadSave.LoadEyes()];
+
+        if(LoadSave.LoadSave.LoadHair() < 4)
+        {
+            imgAvatar[4].sprite = hairs01[LoadSave.LoadSave.LoadHair()];
+        }
+        else
+        {
+            imgAvatar[4].sprite = hairs02[LoadSave.LoadSave.LoadHair() - 4];
+        }
+
+
+        imgAvatar[0].color = skinsColor[LoadSave.LoadSave.LoadSkin()];
     }
 }

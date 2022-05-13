@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 2
   nameItem: Casque Vert
   description: Un casque vert standard pour cacher vos pustules ignobles.
-  imgItem: {fileID: -892270625555964214, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
+  imgItem: {fileID: 4217637359650165115, guid: ec24c1d71c7db3540a437f5bad231c0d, type: 3}
   imgThema: {fileID: -7323196934978415421, guid: c03aa39ec71ab4b4f8088f480b5b6f5e, type: 3}
   price: 100
   rarity: 0

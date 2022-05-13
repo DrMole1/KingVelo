@@ -2326,8 +2326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameShopScene: ShopMenu
-  nameTutoScene: NavigationMenu
-  nameGameScene: NavigationMenu
+  nameTutoScene: Game
+  nameGameScene: Game
   transitionManager: {fileID: 1188831000}
   buttons:
   - {fileID: 223604819}
@@ -2397,7 +2397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce808424a0c0654b8518ef48834d28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionManager: {fileID: 1188831000}
   buttonsCat:
   - {fileID: 302337404}
   - {fileID: 411378439}
@@ -2460,7 +2459,7 @@ MonoBehaviour:
   - {fileID: 1592794163771605608, guid: 655160e2a72896346b9405e7b7fdf889, type: 3}
   - {fileID: 4489964653481981717, guid: 655160e2a72896346b9405e7b7fdf889, type: 3}
   - {fileID: -3926252254723321149, guid: 655160e2a72896346b9405e7b7fdf889, type: 3}
-  hair02:
+  hairs02:
   - {fileID: 5458549307710569598, guid: 655160e2a72896346b9405e7b7fdf889, type: 3}
   - {fileID: -2513342632005442972, guid: 655160e2a72896346b9405e7b7fdf889, type: 3}
   - {fileID: 5025517745228394942, guid: 655160e2a72896346b9405e7b7fdf889, type: 3}
