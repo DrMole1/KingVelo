@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Brake : MonoBehaviour
+public class Brake : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     private const float MAX_SPEED = 5f;
     private const float ADD_SPEED = 0.05f;
@@ -23,40 +24,37 @@ public class Brake : MonoBehaviour
 
     // =====================================================
 
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        playerMovement.setIsBrakePressed(false);
+
+        if (decreaseSpeed != null) { StopCoroutine(decreaseSpeed); }
+
+        increaseSpeed = StartCoroutine(IIncreaseSpeed());
+
+        currentRot = new Vector3(0, 0, 5f);
+        currentQuaternionRot.eulerAngles = currentRot;
+        transform.localRotation = currentQuaternionRot;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        playerMovement.setIsBrakePressed(true);
+        playerMovement.setLateralSpeed(0f);
+        playerMovement.setBrakeFactor(0f);
+
+        if (increaseSpeed != null) { StopCoroutine(increaseSpeed); }
+
+        decreaseSpeed = StartCoroutine(IDecreaseSpeed());
+
+        currentRot = new Vector3(0, 0, -6f);
+        currentQuaternionRot.eulerAngles = currentRot;
+        transform.localRotation = currentQuaternionRot;
+    }
 
     private void Awake()
     {
         speed = MAX_SPEED;
-    }
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0) && isOnButton && playerMovement.getCanMove())
-        {
-            playerMovement.setIsBrakePressed(true);
-            playerMovement.setLateralSpeed(0f);
-
-            if (increaseSpeed != null) { StopCoroutine(increaseSpeed); }
-
-            decreaseSpeed = StartCoroutine(IDecreaseSpeed());
-
-            currentRot = new Vector3(0, 0, -6f);
-            currentQuaternionRot.eulerAngles = currentRot;
-            transform.localRotation = currentQuaternionRot;
-        }
-
-        if (Input.GetMouseButtonUp(0) && playerMovement.getIsBrakePressed())
-        {
-            playerMovement.setIsBrakePressed(false);
-
-            if (decreaseSpeed != null) { StopCoroutine(decreaseSpeed); }
-
-            increaseSpeed = StartCoroutine(IIncreaseSpeed());
-
-            currentRot = new Vector3(0, 0, 5f);
-            currentQuaternionRot.eulerAngles = currentRot;
-            transform.localRotation = currentQuaternionRot;
-        }
     }
 
     void OnMouseOver()
@@ -78,9 +76,12 @@ public class Brake : MonoBehaviour
             speed = speed + ADD_SPEED;
             playerMovement.setSpeed(speed);
 
+            if (playerMovement.getBrakeFactor() < 1f) { playerMovement.setBrakeFactor(playerMovement.getBrakeFactor() + 0.005f); }
+
             yield return new WaitForSeconds(DELAY);
         }
 
+        playerMovement.setBrakeFactor(1f);
         speed = MAX_SPEED;
         playerMovement.setSpeed(speed);
     }

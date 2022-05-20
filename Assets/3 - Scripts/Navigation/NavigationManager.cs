@@ -86,6 +86,7 @@ public class NavigationManager : MonoBehaviour
         if (!canUseButton) { return; }
 
         if (soundManager != null) { soundManager.playAudioClip(6); }
+        Save.Save.SaveCombination();
         StartCoroutine(IAnimButton(buttons[2]));
         StartCoroutine(IGoToScene(2.5f, nameShopScene));
     }

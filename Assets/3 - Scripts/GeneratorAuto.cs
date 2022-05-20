@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class GeneratorAuto : MonoBehaviour
 {
-    private const float MIN_DELAY_A = 4f;
-    private const float MAX_DELAY_A = 7f;
-    private const float MIN_DELAY_B = 9f;
-    private const float MAX_DELAY_B = 12f;
+    private const float MIN_DELAY_A = 3f;
+    private const float MAX_DELAY_A = 4f;
+    private const float MIN_DELAY_B = 5f;
+    private const float MAX_DELAY_B = 6f;
 
-    private const int CHANCE_TO_SPAWN_CAR = 80;
+    private const int CHANCE_TO_SPAWN_CAR = 90;
 
     // ====================== VARIABLES ======================
 
-    [SerializeField] private Transform destructorToLookAt;
+    [SerializeField] private Transform posToLookAt;
     [SerializeField] private GameObject autoPref;
     [SerializeField] private GameObject truckPref;
+    [SerializeField] private Material[] m_Auto;
 
-    private bool isActivated = true;
+    private bool isActivated = false;
     private float delayA;
     private float delayB;
 
@@ -33,7 +34,7 @@ public class GeneratorAuto : MonoBehaviour
         delayA = Random.Range(MIN_DELAY_A, MAX_DELAY_A);
         delayB = Random.Range(MIN_DELAY_B, MAX_DELAY_B);
 
-        transform.LookAt(destructorToLookAt);
+        transform.LookAt(posToLookAt);
     }
 
     private void Start()
@@ -67,5 +68,21 @@ public class GeneratorAuto : MonoBehaviour
     {
         GameObject obj;
         obj = Instantiate(_objPref, transform.position, transform.rotation, transform);
+
+        paintObject(obj);
+    }
+
+    private void paintObject(GameObject _obj)
+    {
+        Material mat = m_Auto[Random.Range(0, m_Auto.Length)];
+
+        Transform mesh = _obj.transform.GetChild(0);
+        for (int i = 0; i < mesh.childCount; i++)
+        {
+            if(mesh.GetChild(i).CompareTag("Color"))
+            {
+                mesh.GetChild(i).GetComponent<MeshRenderer>().material = mat;
+            }
+        }
     }
 }

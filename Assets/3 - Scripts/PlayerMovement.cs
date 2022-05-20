@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isArrowPressed = false;
     private bool isBrakePressed = false;
     private bool isPedaling = false;
+    private float brakeFactor = 1f;
+
     [HideInInspector] public GameManager gameManager;
 
     private Rotate pedals;
@@ -45,7 +47,8 @@ public class PlayerMovement : MonoBehaviour
     public void setIsArrowPressed(bool _isPressed) { isArrowPressed = _isPressed; }
     public bool getIsBrakePressed() { return isBrakePressed; }
     public void setIsBrakePressed(bool _isPressed) { isBrakePressed = _isPressed; }
-
+    public float getBrakeFactor() { return brakeFactor; }
+    public void setBrakeFactor(float _factor) { brakeFactor = _factor; }
 
     private void Awake()
     {
@@ -93,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void calculateLateralSpeed()
     {
-        if (!isArrowPressed && !isBrakePressed) { speedLateral = Input.GetAxis("Horizontal") * LATERAL_FACTOR; }
+        if (!isArrowPressed && !isBrakePressed) { speedLateral = Input.GetAxis("Horizontal") * LATERAL_FACTOR * brakeFactor; }
     }
 
     private void setElementRotatorWithSpeed()

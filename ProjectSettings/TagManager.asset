@@ -8,6 +8,7 @@ TagManager:
   - Skin
   - Car
   - Destructor
+  - Color
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1990777253
     locked: 0

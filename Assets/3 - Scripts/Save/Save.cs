@@ -190,7 +190,7 @@ namespace Save
 
         static public void SavePlayerScore(int _score)
         {
-            PlayerPrefs.GetInt("Score_Joueur", _score);
+            PlayerPrefs.SetInt("Score_Joueur", _score);
         }
 
         static public void SaveCombination()

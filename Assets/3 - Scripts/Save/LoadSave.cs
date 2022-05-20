@@ -190,5 +190,10 @@ namespace LoadSave
 
             return elements;
         }
+
+        static public string LoadCombinationString()
+        {
+            return PlayerPrefs.GetString("Combinaison_Avatar", "");
+        }
     }
 }

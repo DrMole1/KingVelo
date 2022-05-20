@@ -15,7 +15,7 @@ public class FinishLine : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.callStopPlayer();
+            gameManager.callStopPlayer(true);
         }
     }
 }
