@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: db83173e4c1725442bdde6ae71890df1, type: 2}
   - {fileID: 2100000, guid: c15d09c0ff0df8340bc4c28158bd61ce, type: 2}
   - {fileID: 2100000, guid: 876fd78e724d30d439ace5a304b2c84c, type: 2}
+  - {fileID: 2100000, guid: 0039979f257ff6540b8c7b7ce17b20d7, type: 2}
 --- !u!33 &145593241269997189
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -68,7 +69,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145593241269997191}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

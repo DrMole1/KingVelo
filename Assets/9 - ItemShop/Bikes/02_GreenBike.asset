@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   id: 2
-  nameItem: Armature Verte
+  nameItem: "V\xE9lo Vert"
   description: "Un v\xE9lo de couleur verte. Un pas de plus pour exprimer votre amour
     de la nature."
   imgItem: {fileID: 126478873864798858, guid: a583429fb141fcc4b8c886251c430174, type: 3}

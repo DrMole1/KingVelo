@@ -32,6 +32,14 @@ public class ReceptionManager : MonoBehaviour
         if (GameObject.Find("SoundManager") != null) { soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>(); }
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown("a"))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+    }
+
     public void goToNavigationScene()
     {
         if (canUseButton) { StartCoroutine(IAnimButton()); if (soundManager != null) { soundManager.playAudioClip(6); } }
@@ -45,8 +53,8 @@ public class ReceptionManager : MonoBehaviour
         float minScaleY = button.sizeDelta.y;
         float maxScaleX = minScaleX * FACTOR_SCALE;
         float maxScaleY = minScaleY * FACTOR_SCALE;
-        float addScaleX = (maxScaleX - minScaleX) / 25;
-        float addScaleY = (maxScaleY - minScaleY) / 25;
+        float addScaleX = (maxScaleX - minScaleX) / 15;
+        float addScaleY = (maxScaleY - minScaleY) / 15;
 
         while(button.sizeDelta.x < maxScaleX)
         {

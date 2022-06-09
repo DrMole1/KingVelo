@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d398be6351a854185d71d3db488360, type: 3}
+  m_Name: 03_WindowsXP
+  m_EditorClassIdentifier: 
+  type: 2
+  id: 3
+  nameItem: Windows XP
+  description: "Quand des informaticiens convertissent un bruitage d'ordinateur en
+    sonnette de v\xE9lo, \xE7a donne cette abomination."
+  imgItem: {fileID: 21300000, guid: 630c79e92c0c9314884b9daf18560f15, type: 3}
+  imgThema: {fileID: 21300000, guid: f9b34ce4036dcc943b905d0198db4edf, type: 3}
+  price: 400
+  rarity: 1

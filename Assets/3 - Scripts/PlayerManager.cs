@@ -35,6 +35,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private Material[] m_skins;
 
     [SerializeField] GameManager gameManager;
+    [SerializeField] private GameObject ptcPref;
 
 
     private bool isImmune = false;
@@ -103,6 +104,11 @@ public class PlayerManager : MonoBehaviour
         lifePoint--;
 
         StartCoroutine(IAnimateHeart());
+        Camera.main.GetComponent<CameraShake>().Shake(0.4f, 1f);
+
+        GameObject ptc;
+        ptc = Instantiate(ptcPref, transform.position, Quaternion.identity, transform);
+        Destroy(ptc, 2f);
 
         if (lifePoint == 0) { die(); }
         else

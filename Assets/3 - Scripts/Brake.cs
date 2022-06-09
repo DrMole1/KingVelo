@@ -14,7 +14,6 @@ public class Brake : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     [SerializeField] private PlayerMovement playerMovement;
 
     private float speed;
-    private bool isOnButton = false;
 
     private Coroutine increaseSpeed;
     private Coroutine decreaseSpeed;
@@ -22,7 +21,15 @@ public class Brake : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     private Vector3 currentRot;
     private Quaternion currentQuaternionRot;
 
+    private SoundManager soundManager;
+
     // =====================================================
+
+    private void Awake()
+    {
+        speed = MAX_SPEED;
+        if (GameObject.Find("SoundManager") != null) { soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>(); }
+    }
 
     public void OnPointerUp(PointerEventData eventData)
     {
@@ -39,6 +46,8 @@ public class Brake : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (soundManager != null) { soundManager.playAudioClip(16); }
+
         playerMovement.setIsBrakePressed(true);
         playerMovement.setLateralSpeed(0f);
         playerMovement.setBrakeFactor(0f);
@@ -50,21 +59,6 @@ public class Brake : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         currentRot = new Vector3(0, 0, -6f);
         currentQuaternionRot.eulerAngles = currentRot;
         transform.localRotation = currentQuaternionRot;
-    }
-
-    private void Awake()
-    {
-        speed = MAX_SPEED;
-    }
-
-    void OnMouseOver()
-    {
-        isOnButton = true;
-    }
-
-    void OnMouseExit()
-    {
-        isOnButton = false;
     }
 
     private IEnumerator IIncreaseSpeed()

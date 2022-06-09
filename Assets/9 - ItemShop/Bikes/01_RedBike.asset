@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   id: 1
-  nameItem: Armature Rouge
+  nameItem: "V\xE9lo Rouge"
   description: "Un v\xE9lo de couleur rouge. Au moins avec \xE7a, vous serez visible.
     Peut-\xEAtre."
   imgItem: {fileID: 291559397666729624, guid: a583429fb141fcc4b8c886251c430174, type: 3}

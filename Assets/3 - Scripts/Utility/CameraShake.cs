@@ -44,7 +44,7 @@ public class CameraShake : MonoBehaviour
             float y = Random.Range(-_intensity, _intensity);
             float z = Random.Range(-_intensity, _intensity);
 
-            cam.transform.localRotation = Quaternion.Euler(x, y, z);
+            cam.transform.localRotation = Quaternion.Euler(originalRotation.eulerAngles.x + x, originalRotation.eulerAngles.y + y, originalRotation.eulerAngles.z + z);
 
             cpt += Time.deltaTime;
             yield return null;
@@ -103,7 +103,7 @@ public class CameraShake : MonoBehaviour
         Vector3 currentRot;
         Quaternion currentQuaternionRot = new Quaternion();
 
-        transform.localPosition = new Vector3(0f, 7.5f, 7.5f);
+        transform.localPosition = new Vector3(0f, 6.9f, 7.5f);
 
         currentRot = new Vector3(45f, 180f, 0f);
         currentQuaternionRot.eulerAngles = currentRot;
@@ -127,12 +127,14 @@ public class CameraShake : MonoBehaviour
 
             transform.localPosition = new Vector3(0f, transform.localPosition.y - 0.1f, transform.localPosition.z - 0.1f);
 
-            xRot -= 0.2f;
+            xRot -= 0.4f;
             currentRot = new Vector3(xRot, 180f, 0f);
             currentQuaternionRot.eulerAngles = currentRot;
             transform.localRotation = currentQuaternionRot;
 
             cpt++;
         }
+
+        gameObject.GetComponent<CameraRotator>().enabled = true;
     }
 }

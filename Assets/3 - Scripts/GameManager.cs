@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 {
     private float DELAY_TO_RUN_PLAYER = 3f;
     private float DELAY = 0.01f;
-    private const float FACTOR_SCALE = 1.3f;
+    private const float FACTOR_SCALE = 1.5f;
 
     // ====================== VARIABLES ======================
 
@@ -44,10 +44,12 @@ public class GameManager : MonoBehaviour
     private bool canUseButton = true;
 
     private SoundManager soundManager;
+    private float currentPitch = 0.5f;
     private Camera cam;
     [HideInInspector] public bool isGameFinished = false;
     private bool hasStarted = false;
     private bool canConvert = true;
+    private MusicManager musicManager;
 
     // =======================================================
 
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
         cam = Camera.main;
         playerMovement.gameManager = this;
         if (GameObject.Find("SoundManager") != null) { soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>(); }
+        if (GameObject.Find("MusicManager") != null) { musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>(); }
     }
 
 
@@ -81,6 +84,8 @@ public class GameManager : MonoBehaviour
 
     public void callStopPlayer(bool _win)
     {
+        GetComponent<PauseSystem>().canPause = false;
+
         isGameFinished = true;
 
         StartCoroutine(IStopPlayer(_win));
@@ -152,6 +157,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < circles.childCount; i++)
         {
             StartCoroutine(IGrowCircle(i));
+            if (soundManager != null) { soundManager.playAudioClipWithPitch(14, 1 + (i * 0.15f)); }
             yield return new WaitForSeconds(0.4f);
         }
     }
@@ -239,17 +245,25 @@ public class GameManager : MonoBehaviour
         while(scoreToShow <= scoreManager.getScore())
         {
             text.text = scoreToShow.ToString();
-            scoreToShow += 2;
+            scoreToShow += 10;
 
-            yield return new WaitForSeconds(DELAY / calculateFactor(GetComponent<ScoreManager>().getScore()));
+            if(scoreToShow % 10 == 0) 
+            {
+                currentPitch += 0.02f;
+                if (soundManager != null) { soundManager.playAudioClipWithPitch(15, currentPitch); }
+            }
+
+            yield return null;
         }
+
+        text.text = scoreManager.getScore().ToString();
 
         yield return new WaitForSeconds(1f);
 
         panelConverter.SetActive(true);
         txtScoreConverter.text = text.text;
         txtCoinsConverter.text = LoadSave.LoadSave.LoadCurrentCoins().ToString();
-        Save.Save.SavePlayerScore(scoreToShow - 2);
+        Save.Save.SavePlayerScore(scoreManager.getScore());
     }
 
     private IEnumerator IGrowTextSize(TextMeshProUGUI _text)
@@ -281,24 +295,20 @@ public class GameManager : MonoBehaviour
         canConvert = false;
         int scoreToConvert = int.Parse(txtScoreConverter.text);
         int currentCoins = int.Parse(txtCoinsConverter.text);
-        int cpt = 0;
 
         while (scoreToConvert > 0)
         {
-            scoreToConvert -= 2;
-            cpt += 2;
-
-            if(cpt == 10)
-            {
-                currentCoins++;
-                cpt = 0;
-            }
+            scoreToConvert -= 10;
+            currentCoins++;
 
             txtScoreConverter.text = scoreToConvert.ToString();
             txtCoinsConverter.text = currentCoins.ToString();
 
-            yield return new WaitForSeconds(DELAY / calculateFactor(GetComponent<ScoreManager>().getScore()));
+            yield return null;
         }
+
+        txtScoreConverter.text = "0";
+        txtCoinsConverter.text = currentCoins.ToString();
 
         yield return new WaitForSeconds(1);
 
@@ -309,7 +319,13 @@ public class GameManager : MonoBehaviour
 
     public void goToNavigationScene()
     {
-        if (canUseButton) { StartCoroutine(IAnimButton()); if (soundManager != null) { soundManager.playAudioClip(6); } }
+        if (canUseButton) 
+        { 
+            StartCoroutine(IAnimButton()); 
+
+            if (soundManager != null) { soundManager.playAudioClip(6); }
+            if (musicManager != null) { musicManager.callChangeMusic(0); }
+        }
     }
 
     private IEnumerator IAnimButton()
@@ -320,8 +336,8 @@ public class GameManager : MonoBehaviour
         float minScaleY = button.sizeDelta.y;
         float maxScaleX = minScaleX * FACTOR_SCALE;
         float maxScaleY = minScaleY * FACTOR_SCALE;
-        float addScaleX = (maxScaleX - minScaleX) / 20;
-        float addScaleY = (maxScaleY - minScaleY) / 20;
+        float addScaleX = (maxScaleX - minScaleX) / 13;
+        float addScaleY = (maxScaleY - minScaleY) / 13;
 
         while (button.sizeDelta.x < maxScaleX)
         {
@@ -342,17 +358,5 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
 
         SceneManager.LoadScene(nameNavigationScene);
-    }
-
-    private float calculateFactor(int _score)
-    {
-        float factor = 1f;
-
-        if(_score > 200)
-        {
-            factor = (float)_score / 100f;
-        }
-
-        return factor;
     }
 }

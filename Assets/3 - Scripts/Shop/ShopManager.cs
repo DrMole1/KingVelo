@@ -11,7 +11,7 @@ public class ShopManager : MonoBehaviour
 {
     private const float FACTOR_SCALE = 1.4f;
     private const float DELAY_TO_USE = 0.6f;
-    private const int BASE_HEIGHT = 10;
+    private const int BASE_HEIGHT = 50; //10
     private const int SPACE_ITEM = 50;
     private const int NB_CHARACTERS_TO_DECREASE = 14;
     private const float DELAY_BLINK = 0.12f;
@@ -72,7 +72,7 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
-        //Save.Save.SaveCurrentCoins(1000); // To test Shop
+        //Save.Save.SaveCurrentCoins(9000); // To test Shop
         currentCoinsPlayer = LoadSave.LoadSave.LoadCurrentCoins();
         currentCoins.text = currentCoinsPlayer.ToString();
 
@@ -97,8 +97,8 @@ public class ShopManager : MonoBehaviour
         float minScaleY = _btn.sizeDelta.y;
         float maxScaleX = minScaleX * FACTOR_SCALE;
         float maxScaleY = minScaleY * FACTOR_SCALE;
-        float addScaleX = (maxScaleX - minScaleX) / 18;
-        float addScaleY = (maxScaleY - minScaleY) / 18;
+        float addScaleX = (maxScaleX - minScaleX) / 15;
+        float addScaleY = (maxScaleY - minScaleY) / 15;
 
         while(_btn.sizeDelta.x < maxScaleX)
         {

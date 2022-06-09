@@ -9,6 +9,7 @@ public class Coin : MonoBehaviour
     // ====================== VARIABLES ======================
 
     [SerializeField] private int value;
+    [SerializeField] private GameObject ptcPref;
 
     private SoundManager soundManager;
     private ScoreManager scoreManager;
@@ -32,6 +33,10 @@ public class Coin : MonoBehaviour
             if (soundManager != null) { soundManager.playAudioClipWithPitch(11, pitch); }
 
             scoreManager.addScore(value, true);
+
+            GameObject ptc;
+            ptc = Instantiate(ptcPref, other.transform.position, Quaternion.identity, other.transform);
+            Destroy(ptc, 2f);
         }
     }
 

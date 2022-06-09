@@ -185,7 +185,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 250, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6258654792978754444
 CanvasRenderer:
@@ -279,15 +279,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startEvent: 1
   rules:
-  - {fileID: -892270625555964214, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
-  - {fileID: -8435759140637485836, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
-  - {fileID: -2928921300311656764, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
-  - {fileID: 1131644413561498849, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
-  - {fileID: -3910960775768086237, guid: d1e47a9f1d067184a9a6de6471036116, type: 3}
+  - {fileID: 21300000, guid: de33884ba102e6b439e00b337770a71c, type: 3}
+  - {fileID: 21300000, guid: b5c33abcea0805846a9baf98fcc84e17, type: 3}
+  - {fileID: 21300000, guid: 0ed3fe17339e2af439d8ea7440ac9ae3, type: 3}
+  - {fileID: 21300000, guid: 3ac5c0534ed604e43bf1d1e8039a770f, type: 3}
+  - {fileID: 21300000, guid: 7af08d2898c487f4fa357af210e5cebb, type: 3}
+  - {fileID: 21300000, guid: a9d783204d8376247a2ea05c99530b4b, type: 3}
+  - {fileID: 21300000, guid: f82ef3affb67cbf48bc44e504c22058f, type: 3}
+  - {fileID: 21300000, guid: ef7ac0d76c4cfe34eb903dc5ae6d27bc, type: 3}
+  - {fileID: 21300000, guid: c75a225159978c84693231ebc4a7cd58, type: 3}
+  - {fileID: 21300000, guid: 4225766f66033e84288f4273f9df81a6, type: 3}
+  - {fileID: 21300000, guid: de40b0e89196b554e8f0df2d2ac9d224, type: 3}
+  - {fileID: 21300000, guid: f14e12cdefb1a1e45ac2e4a39e5b99ba, type: 3}
+  - {fileID: 21300000, guid: 6b68712eef9b7934e83568d0b06ec824, type: 3}
+  - {fileID: 21300000, guid: a49f2e8c128a124469158e60f9d2774c, type: 3}
+  - {fileID: 21300000, guid: c683f2ba4b0775345a27b8d21c2bd840, type: 3}
+  - {fileID: 21300000, guid: c8b53699e8c332845a153b9f4fc14cde, type: 3}
+  - {fileID: 21300000, guid: c6a2a59b06b3c3f4aa972e06cb356443, type: 3}
+  - {fileID: 21300000, guid: de8e3fd3d5cc0b74b8246aa6b5ecff70, type: 3}
+  - {fileID: 21300000, guid: 6883976e67059f54ba07fb25decec311, type: 3}
+  - {fileID: 21300000, guid: 7f9efecc9c0819341b1e39d812ecea31, type: 3}
+  - {fileID: 21300000, guid: 449590c6ec4c4284f9572a6324a331ec, type: 3}
+  - {fileID: 21300000, guid: cb6c09cb0afd2aa48b98522faf74f3b9, type: 3}
+  - {fileID: 21300000, guid: c996617947efe244b84a93c61f1118a6, type: 3}
   topBackground: {fileID: 6258654792691806635}
   downBackground: {fileID: 6258654792139959291}
   infoSkip: {fileID: 6258654793471484596}
   ruleSlot: {fileID: 6258654792978754441}
+  isOnTransition: 1
 --- !u!1 &6258654793471484596
 GameObject:
   m_ObjectHideFlags: 0

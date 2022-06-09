@@ -5,17 +5,20 @@ using UnityEngine;
 public class Auto : MonoBehaviour
 {
     private const float MAX_SPEED = 8f;
+    private const float MIN_SPEED = 0f;
 
     public enum State { Stop, Run, AutoTurn };
 
     // ====================== VARIABLES ======================
 
     private State state = State.Run;
-    private bool isOnAutoTurn = false;
     private float speed;
-    private GameManager gameManager;
+    private int currentNodeToReach = 0;
+    private bool isOnAutoTurn = false;
     private bool canMove = true;
-    public int currentNodeToReach = 0;
+    private Coroutine decreaseCoroutine;
+    private Coroutine increaseCoroutine;
+    private GameManager gameManager;
 
     // =======================================================
 
@@ -58,5 +61,41 @@ public class Auto : MonoBehaviour
         {
             other.transform.parent.gameObject.GetComponent<PlayerManager>().takeDamage();
         }        
+    }
+
+    public void callDecreaseSpeed()
+    {
+        if(increaseCoroutine != null) { StopCoroutine(increaseCoroutine); }
+        decreaseCoroutine = StartCoroutine(IDecreaseSpeed());
+    }
+
+    public void callIncreaseSpeed()
+    {
+        if (decreaseCoroutine != null) { StopCoroutine(decreaseCoroutine); }
+        increaseCoroutine = StartCoroutine(IIncreaseSpeed());
+    }
+
+    private IEnumerator IDecreaseSpeed()
+    {
+        while(speed > MIN_SPEED)
+        {
+            yield return new WaitForSeconds(0.01f);
+
+            speed -= 0.2f;
+        }
+
+        speed = MIN_SPEED;
+    }
+
+    private IEnumerator IIncreaseSpeed()
+    {
+        while(speed < MAX_SPEED)
+        {
+            yield return new WaitForSeconds(0.01f);
+
+            speed += 0.2f;
+        }
+
+        speed = MAX_SPEED;
     }
 }

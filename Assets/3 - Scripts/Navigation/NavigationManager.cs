@@ -35,6 +35,7 @@ public class NavigationManager : MonoBehaviour
     private bool canUseButton = true;
     private LeaderBoardManager leaderBoardManager;
     private SoundManager soundManager;
+    private MusicManager musicManager;
 
     // =====================================================
 
@@ -42,6 +43,7 @@ public class NavigationManager : MonoBehaviour
     {
         leaderBoardManager = GetComponent<LeaderBoardManager>();
         if(GameObject.Find("SoundManager") != null) { soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>(); }
+        if (GameObject.Find("MusicManager") != null) { musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>(); }
     }
 
     private void Start()
@@ -55,7 +57,10 @@ public class NavigationManager : MonoBehaviour
         if(!canUseButton) { return; }
 
         Save.Save.SaveCombination();
+
         if (soundManager != null) { soundManager.playAudioClip(6); }
+        if(musicManager != null) { musicManager.callChangeMusic(1); }
+
         StartCoroutine(IAnimButton(buttons[0]));
         StartCoroutine(IGoToScene(2.5f, nameTutoScene));
     }
@@ -69,13 +74,18 @@ public class NavigationManager : MonoBehaviour
             showPanel(0);
             leaderBoardManager.callArrowsAnim();
             leaderBoardManager.activePlaceHolder();
+
             if(soundManager != null) { soundManager.playAudioClip(0); }
+
             StartCoroutine(IResetCanUse(DELAY_TO_USE));
             return;
         }
 
         Save.Save.SaveCombination();
+
         if (soundManager != null) { soundManager.playAudioClip(6); }
+        if (musicManager != null) { musicManager.callChangeMusic(1); }
+
         Save.Save.SavePlayerPseudo(leaderBoardManager.getPseudo());
         StartCoroutine(IAnimButton(buttons[1]));
         StartCoroutine(IGoToScene(2.5f, nameGameScene));

@@ -9,6 +9,9 @@ TagManager:
   - Car
   - Destructor
   - Color
+  - DummyColor
+  - Dummy
+  - HiddenObjects
   layers:
   - Default
   - TransparentFX
@@ -20,11 +23,11 @@ TagManager:
   - BlockPlayer
   - Car
   - Destructor
-  - 
-  - 
-  - 
-  - 
-  - 
+  - DeadDummy
+  - MouseCollider
+  - OnlyShowOnMinimap
+  - OnlyShowOnCam
+  - HiddenObject
   - 
   - 
   - 

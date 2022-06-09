@@ -13,6 +13,9 @@ public class Klaxon : MonoBehaviour
     public GameObject pushLeft;
     public GameObject pushRight;
 
+    [Header("Player Transform")]
+    [SerializeField] private Transform player;
+
     private int sound;
     private AudioSource audioSource;
 
@@ -28,6 +31,7 @@ public class Klaxon : MonoBehaviour
     public void useKlaxon()
     {
         StartCoroutine(IAnimateKlaxon());
+        checkDummies();
 
         if (clips[sound] != null)
         {
@@ -48,5 +52,17 @@ public class Klaxon : MonoBehaviour
 
         pushLeft.SetActive(true);
         pushRight.SetActive(false);
+    }
+
+    private void checkDummies()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(player.position, 15f);
+        foreach (var hitCollider in hitColliders)
+        {
+            if(hitCollider.CompareTag("Dummy"))
+            {
+                hitCollider.gameObject.GetComponent<Dummy>().alertDummy();
+            }
+        }
     }
 }

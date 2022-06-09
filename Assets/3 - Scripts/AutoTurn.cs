@@ -11,19 +11,27 @@ public class AutoTurn : MonoBehaviour
     // ====================== VARIABLES ======================
 
     [SerializeField] private Role role;
+    [SerializeField] private GameObject ptcCheckPref;
+    [SerializeField] private GameObject nextPtc;
 
     private bool isOnTurn = false;
     private int currentNodeToReach = 0;
     private Vector3[] posNodes;
     private Transform player;
     private PlayerMovement playerMovement;
+    private ScoreManager scoreManager;
+    private SoundManager soundManager;
+    private MusicManager musicManager;
 
     // =======================================================
 
 
     private void Awake()
     {
+        scoreManager = GameObject.Find("SceneManager").GetComponent<ScoreManager>();
         if (role == Role.Start) { setPosNodes(); }
+        if (GameObject.Find("SoundManager") != null) { soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>(); }
+        if (GameObject.Find("MusicManager") != null) { musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>(); }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,7 +40,7 @@ public class AutoTurn : MonoBehaviour
         {
             player = other.transform.parent;
 
-            if(role == Role.Start) { startAutoTurn(); }
+            if(role == Role.Start) { startAutoTurn(); animateCheckPoint(); }
             else if (role == Role.End) { endAutoTurn(); }
         }
     }
@@ -49,6 +57,8 @@ public class AutoTurn : MonoBehaviour
 
     private void startAutoTurn()
     {
+        if (musicManager != null) { musicManager.callDecreasePitch(0.85f); }
+
         playerMovement = player.GetComponent<PlayerMovement>();
         playerMovement.state = PlayerMovement.State.AutoTurn;
 
@@ -60,6 +70,9 @@ public class AutoTurn : MonoBehaviour
 
     private void endAutoTurn()
     {
+        if (musicManager != null) { musicManager.callIncreasePitch(1f); }
+
+
         playerMovement = player.GetComponent<PlayerMovement>();
         playerMovement.state = PlayerMovement.State.Run;
 
@@ -113,5 +126,24 @@ public class AutoTurn : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private void animateCheckPoint()
+    {
+        if (soundManager != null) { soundManager.playAudioClip(19); }
+
+        scoreManager.addScore(50, false);
+
+        Transform ptcRoot = transform.parent.GetChild(2);
+        Quaternion quat = ptcRoot.rotation;
+        Vector3 pos = ptcRoot.position;
+
+        GameObject ptcCheck;
+        ptcCheck = Instantiate(ptcCheckPref, pos, quat);
+        Destroy(ptcCheck, 3f);
+
+        Destroy(ptcRoot.gameObject);
+
+        if(nextPtc != null) { nextPtc.SetActive(true); }
     }
 }

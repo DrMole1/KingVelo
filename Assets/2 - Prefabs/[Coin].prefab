@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 10
+  ptcPref: {fileID: 2606118757620551241, guid: 5b8504faa1883a64fac69fceded8a340, type: 3}
 --- !u!135 &2178473492665907878
 SphereCollider:
   m_ObjectHideFlags: 0

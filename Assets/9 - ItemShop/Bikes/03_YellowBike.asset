@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   id: 3
-  nameItem: Armature Jaune
+  nameItem: "V\xE9lo Jaune"
   description: "Un v\xE9lo de couleur jaune. Le d\xE9veloppeur ne juge pas vos go\xFBts,
     mais c'est pas vraiment une jolie couleur."
   imgItem: {fileID: -506495569614869240, guid: a583429fb141fcc4b8c886251c430174, type: 3}

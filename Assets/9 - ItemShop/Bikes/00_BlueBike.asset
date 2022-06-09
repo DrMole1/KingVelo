@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   id: 0
-  nameItem: Armature Bleue
+  nameItem: "V\xE9lo Bleue"
   description: "Un v\xE9lo de couleur bleue pour camoufler vos futurs bleus."
   imgItem: {fileID: -1501120518671383446, guid: a583429fb141fcc4b8c886251c430174, type: 3}
   imgThema: {fileID: -8208552298739362349, guid: c03aa39ec71ab4b4f8088f480b5b6f5e, type: 3}

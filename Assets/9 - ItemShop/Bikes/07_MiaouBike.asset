@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d398be6351a854185d71d3db488360, type: 3}
+  m_Name: 07_MiaouBike
+  m_EditorClassIdentifier: 
+  type: 1
+  id: 7
+  nameItem: "V\xE9lo Miaou"
+  description: "Chaperlipopette ! Cha alors, ch'est un v\xE9lo charmant que chai
+    l\xE0 !"
+  imgItem: {fileID: 21300000, guid: e069e69325c22714b9f833ccb41fb541, type: 3}
+  imgThema: {fileID: 21300000, guid: 824fa9577dc584d4b844ab514fada647, type: 3}
+  price: 400
+  rarity: 1

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GeneratorAuto : MonoBehaviour
 {
-    private const float MIN_DELAY_A = 3f;
-    private const float MAX_DELAY_A = 4f;
-    private const float MIN_DELAY_B = 5f;
-    private const float MAX_DELAY_B = 6f;
+    private const float MIN_DELAY_A = 4f;
+    private const float MAX_DELAY_A = 5f;
+    private const float MIN_DELAY_B = 6f;
+    private const float MAX_DELAY_B = 7f;
 
     private const int CHANCE_TO_SPAWN_CAR = 90;
 

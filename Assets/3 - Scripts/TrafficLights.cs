@@ -19,6 +19,9 @@ public class TrafficLights : MonoBehaviour
     [SerializeField] private MeshRenderer[] mesh_lights;
     [SerializeField] private SpriteRenderer[] rd_lights;
 
+    [Header("Collider")]
+    [SerializeField] private TrafficLightsCollider collider;
+
     private Color color;
 
     // =======================================================
@@ -62,6 +65,7 @@ public class TrafficLights : MonoBehaviour
     {
         float delay = Random.Range(MIN_DELAY, MAX_DELAY);
 
+        collider.startCar();
         updateLights(Color.Green);
 
         yield return new WaitForSeconds(delay);

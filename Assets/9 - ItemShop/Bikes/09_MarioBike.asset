@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d398be6351a854185d71d3db488360, type: 3}
+  m_Name: 09_MarioBike
+  m_EditorClassIdentifier: 
+  type: 1
+  id: 9
+  nameItem: "Super V\xE9lo Bros"
+  description: "Ce v\xE9lo a \xE9t\xE9 construit \xE0 partir de vieux tuyaux. Ici
+    \xE0 Kingersheim, on aime la r\xE9cup\xE9ration."
+  imgItem: {fileID: 21300000, guid: af6be7b8872b66e44bc34a1be7260237, type: 3}
+  imgThema: {fileID: 21300000, guid: 9a83858f5145e10408d0616d9377df33, type: 3}
+  price: 800
+  rarity: 2

@@ -2634,7 +2634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameShopScene: ShopMenu
-  nameTutoScene: Game
+  nameTutoScene: Tuto
   nameGameScene: Game
   transitionManager: {fileID: 1188831000}
   buttons:
@@ -9923,16 +9923,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Game Designer : Bastien Prob
-
-    Game Developer : Bastien Prob
-
-    Graphic
-    Designer : Bastien Prob
-
-    Music Composer : Axel Prob
-
-    Illustrator  : JOAN'
+  m_text: "Game Designer : Bastien Prob\nGame Developer : Bastien Prob\nGraphic Designer
+    : Bastien Prob\nMusic Composer : Axel & Bastien Prob\nIllustrator \"Le V\xE9lo
+    \xE0 la Carte\"  : JOAN"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a224673c8a4daeb4cbbc72b9ba111415, type: 2}
   m_sharedMaterial: {fileID: -200261120436675613, guid: a224673c8a4daeb4cbbc72b9ba111415, type: 2}
@@ -13590,6 +13583,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1714222442}
     m_Modifications:
+    - target: {fileID: 6258654792978754442, guid: b7b02c609278a174b99ab3bacaecbb50, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 425
+      objectReference: {fileID: 0}
+    - target: {fileID: 6258654792978754442, guid: b7b02c609278a174b99ab3bacaecbb50, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 350
+      objectReference: {fileID: 0}
     - target: {fileID: 6258654793446472438, guid: b7b02c609278a174b99ab3bacaecbb50, type: 3}
       propertyPath: m_Name
       value: Transition
@@ -13680,7 +13681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6258654793446472440, guid: b7b02c609278a174b99ab3bacaecbb50, type: 3}
       propertyPath: startEvent
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7b02c609278a174b99ab3bacaecbb50, type: 3}

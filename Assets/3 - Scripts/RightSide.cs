@@ -11,6 +11,7 @@ public class RightSide : MonoBehaviour
     // ====================== VARIABLES ======================
 
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private GameObject ptcPref;
 
     private bool isPlayerRightSide = false;
     private Coroutine coroutine;
@@ -53,6 +54,10 @@ public class RightSide : MonoBehaviour
         {
             if (soundManager != null) { soundManager.playAudioClip(13); }
             scoreManager.addScore(SCORE_TO_ADD, false);
+
+            GameObject ptc;
+            ptc = Instantiate(ptcPref, playerMovement.transform.position, Quaternion.identity, playerMovement.transform);
+            Destroy(ptc, 2f);
         }
 
         coroutine = StartCoroutine(ICheckPlayerOnRightSide());

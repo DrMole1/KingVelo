@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
 {
     private const float DELAY_RESET_STREAK = 2f;
     private const float DELAY = 0.01f;
+    private const float DELAY_BLINK = 0.12f;
 
     // ====================== VARIABLES ======================
 
@@ -41,6 +42,15 @@ public class ScoreManager : MonoBehaviour
         if(!textIsGrowing) { StartCoroutine(IGrowText()); }
     }
 
+    public void substractScore(int _value)
+    {
+        currentScore -= _value;
+        if(currentScore < 0) { currentScore = 0; }
+
+        StartCoroutine(IUpdateScore());
+        StartCoroutine(IBlinkDecreaseScore());
+    }
+
     private IEnumerator IResetStreak()
     {
         yield return new WaitForSeconds(DELAY_RESET_STREAK);
@@ -52,9 +62,17 @@ public class ScoreManager : MonoBehaviour
     {
         int scoreValue = int.Parse(txtScore.text);
 
-        while(currentScore > scoreValue)
+        while (currentScore > scoreValue)
         {
             scoreValue++;
+            txtScore.text = scoreValue.ToString();
+
+            yield return new WaitForSeconds(DELAY);
+        }
+
+        while (currentScore < scoreValue)
+        {
+            scoreValue--;
             txtScore.text = scoreValue.ToString();
 
             yield return new WaitForSeconds(DELAY);
@@ -78,5 +96,41 @@ public class ScoreManager : MonoBehaviour
         }
 
         textIsGrowing = false;
+    }
+
+    private IEnumerator IBlinkDecreaseScore()
+    {
+        Color32 white = new Color32(255, 255, 255, 255);
+        Color32 red = new Color32(255, 0, 0, 255);
+
+        txtScore.color = red;
+
+        yield return new WaitForSeconds(DELAY_BLINK);
+
+        txtScore.color = white;
+
+        yield return new WaitForSeconds(DELAY_BLINK);
+
+        txtScore.color = red;
+
+        yield return new WaitForSeconds(DELAY_BLINK);
+
+        txtScore.color = white;
+
+        yield return new WaitForSeconds(DELAY_BLINK);
+
+        txtScore.color = red;
+
+        yield return new WaitForSeconds(DELAY_BLINK);
+
+        txtScore.color = white;
+
+        yield return new WaitForSeconds(DELAY_BLINK);
+
+        txtScore.color = red;
+
+        yield return new WaitForSeconds(DELAY_BLINK);
+
+        txtScore.color = white;
     }
 }

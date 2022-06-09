@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4272003450563496834}
   - component: {fileID: 4272003450563496835}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,8 +308,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4272003451242235037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 1.12, z: -10.7}
-  m_LocalScale: {x: 1, y: 1, z: 20}
+  m_LocalPosition: {x: 5, y: 1.12, z: -3.915}
+  m_LocalScale: {x: 8, y: 1, z: 6.432357}
   m_Children: []
   m_Father: {fileID: 4272003451798400307}
   m_RootOrder: 3
@@ -342,7 +342,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4272003451242235037}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -399,7 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4272003451288927910}
   - component: {fileID: 4272003451288927911}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4272003451448692479}
   - component: {fileID: 4272003451448692472}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,6 +701,7 @@ MonoBehaviour:
   - {fileID: 4272003451448692472}
   - {fileID: 4272003451288927911}
   - {fileID: 4272003450563496835}
+  collider: {fileID: 4272003451242235034}
 --- !u!1 &4272003452002970024
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4272003452256003646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8, y: 1.12, z: -10.7}
+  m_LocalPosition: {x: -3.99, y: 1.12, z: -10.68}
   m_LocalScale: {x: 1, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 4272003451798400307}
@@ -1006,7 +1007,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4272003452256003646}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1062,7 +1063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4272003452285592522}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MinimapIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1097,7 +1098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4272003452323360448}
   - component: {fileID: 4272003452323360449}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
